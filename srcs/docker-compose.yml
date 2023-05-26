@@ -23,7 +23,6 @@ services:
         - .env
       ports:
         - 443:443
-        - 80:80
       restart: on-failure
       volumes:
         - wp:/var/www/html
@@ -43,18 +42,20 @@ services:
       env_file:
         - .env
   adminer:
-    image: adminer
-    ports:
-      - 8080:8080
-    networks:
-      - inception
+      container_name: adminer
+      build:
+        ./requirements/bonus/adminer/.
+      ports:
+        - 8080:8080
+      networks:
+        - inception
 volumes:
   wp:
-    driver: local
-    driver_opts:
-      type: none
-      o: bind
-      device: /Users/aait-oma/Desktop/inception/data/wp
+    # driver: local
+    # driver_opts:
+    #   type: none
+    #   o: bind
+    #   device: /Users/aait-oma/Desktop/inception/data/wp
   mdb:
     # driver: local
     # driver_opts:
