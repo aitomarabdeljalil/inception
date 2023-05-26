@@ -49,6 +49,15 @@ services:
         - 8080:8080
       networks:
         - inception
+  redis:
+      container_name : redis
+      build:
+        ./requirements/bonus/redis/.
+      restart: on-failure
+      networks:
+        - inception
+      depends_on:
+        - wordpress
 volumes:
   wp:
     # driver: local
