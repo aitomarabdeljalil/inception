@@ -53,11 +53,23 @@ services:
       container_name : redis
       build:
         ./requirements/bonus/redis/.
-      restart: on-failure
+      restart: always
+      expose:
+        - '6379'
       networks:
         - inception
       depends_on:
         - wordpress
+  website:
+      container_name: website
+      build:
+        ./requirements/bonus/website/.
+      restart: always
+      ports:
+        - 80:80
+      networks:
+        - inception
+
 volumes:
   wp:
     # driver: local
