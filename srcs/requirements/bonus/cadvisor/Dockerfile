@@ -5,20 +5,16 @@
 #                                                     +:+ +:+         +:+      #
 #    By: aait-oma <aait-oma@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/05/27 13:28:07 by aait-oma          #+#    #+#              #
-#    Updated: 2023/05/30 18:36:43 by aait-oma         ###   ########.fr        #
+#    Created: 2023/05/30 16:21:18 by aait-oma          #+#    #+#              #
+#    Updated: 2023/05/30 17:17:06 by aait-oma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FROM debian:buster
 
-RUN apt-get update -y && apt-get upgrade -y;\
-	apt-get install -y wget apache2 php libapache2-mod-php php-mysql ; \
-	mkdir -p /var/www/html/ && rm -rf /var/www/html/*;
+RUN apt-get update && apt-get install -y wget\
+	&& wget https://github.com/google/cadvisor/releases/download/v0.47.0/cadvisor-v0.47.0-linux-amd64 \
+	&& mv cadvisor-v0.47.0-linux-amd64 cadvisor \
+	&& chmod +x cadvisor;
 
-RUN	wget https://github.com/vrana/adminer/releases/download/v4.8.1/adminer-4.8.1.php -O /var/www/html/index.php
-	# sed -i 's/#ServerName www.example.com/ServerName 0.0.0.0/1' /etc/apache2/sites-available/000-default.conf;
-
-CMD ["/usr/sbin/apachectl", "-DFOREGROUND"]
-
-# place of 127.0.0.1 do aait-oma.42.fr
+CMD [ "./cadvisor" ]

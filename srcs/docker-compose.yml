@@ -44,7 +44,7 @@ services:
       build:
         ./requirements/bonus/adminer/.
       ports:
-        - 8080:8080
+        - 8080:80
       networks:
         - inception
   redis:
@@ -64,10 +64,23 @@ services:
         ./requirements/bonus/website/.
       restart: always
       ports:
-        - 80:80
+        - 80:5010
       networks:
         - inception
-
+  cadvisor:
+      container_name: cadviser
+      build:
+        ./requirements/bonus/cadvisor/.
+      restart: always
+      ports:
+        - '8080:8080'
+      volumes:
+        - /:/rootfs:ro
+        - /var/run:/var/run:rw
+        - /sys:/sys:ro
+        - /var/lib/docker/:/var/lib/docker:ro
+      networks:
+        - inception
 volumes:
   wp:
     driver: local
