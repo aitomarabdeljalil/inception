@@ -44,7 +44,7 @@ services:
       build:
         ./requirements/bonus/adminer/.
       ports:
-        - 8080:80
+        - 8081:80
       networks:
         - inception
   redis:
@@ -64,7 +64,7 @@ services:
         ./requirements/bonus/website/.
       restart: always
       ports:
-        - 80:5010
+        - 5010:80
       networks:
         - inception
   cadvisor:

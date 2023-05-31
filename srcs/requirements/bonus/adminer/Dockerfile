@@ -6,7 +6,7 @@
 #    By: aait-oma <aait-oma@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/27 13:28:07 by aait-oma          #+#    #+#              #
-#    Updated: 2023/05/30 18:36:43 by aait-oma         ###   ########.fr        #
+#    Updated: 2023/05/31 08:35:42 by aait-oma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,6 @@ RUN apt-get update -y && apt-get upgrade -y;\
 	mkdir -p /var/www/html/ && rm -rf /var/www/html/*;
 
 RUN	wget https://github.com/vrana/adminer/releases/download/v4.8.1/adminer-4.8.1.php -O /var/www/html/index.php
-	# sed -i 's/#ServerName www.example.com/ServerName 0.0.0.0/1' /etc/apache2/sites-available/000-default.conf;
 
 CMD ["/usr/sbin/apachectl", "-DFOREGROUND"]
 
