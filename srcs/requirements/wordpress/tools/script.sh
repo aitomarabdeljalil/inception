@@ -19,6 +19,7 @@ if [ ! -f "/var/www/html/index.php" ]; then
     sed -i 's/listen = \/run\/php\/php7.3-fpm.sock/listen = 9000/g' /etc/php/7.3/fpm/pool.d/www.conf;
 fi
 
+chown -R www-data:www-data /var/www/html
 service php7.3-fpm start;
 service php7.3-fpm stop
 
