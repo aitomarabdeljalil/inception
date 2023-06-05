@@ -1,7 +1,7 @@
 NAME			:= inception
 CMPS_CMD		:= docker-compose
 CMPS_FILE		:= srcs/docker-compose.yml
-VOLUMES_ROOT	:= /Users/sel-mars/$(NAME)-volumes
+VOLUMES_ROOT	:= /Users/aait-oma/$(NAME)-volumes
 VOLUMES			:= $(addprefix $(VOLUMES_ROOT)/,wp mdb)
 COMPOSE			:= $(CMPS_CMD) -f $(CMPS_FILE) -p $(NAME)
 
