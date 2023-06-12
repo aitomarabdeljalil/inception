@@ -87,13 +87,13 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /Users/aait-oma/Desktop/inception/data/wp
+      device: /home/aait-oma/data/inception-volumes/wp
   mdb:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /Users/aait-oma/Desktop/inception/data/mdb
+      device: /home/aait-oma/data/inception-volumes/mdb
 
 networks:
   inception:

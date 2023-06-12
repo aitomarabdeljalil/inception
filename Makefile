@@ -1,7 +1,7 @@
 NAME			:= inception
 CMPS_CMD		:= docker-compose
 CMPS_FILE		:= srcs/docker-compose.yml
-VOLUMES_ROOT	:= /Users/aait-oma/$(NAME)-volumes
+VOLUMES_ROOT	:= /home/aait-oma/data/$(NAME)-volumes
 VOLUMES			:= $(addprefix $(VOLUMES_ROOT)/,wp mdb)
 COMPOSE			:= $(CMPS_CMD) -f $(CMPS_FILE) -p $(NAME)
 
@@ -30,6 +30,6 @@ voldown:
 	@$(COMPOSE) down --volumes
 
 fclean: voldown
-	@rm -rf $(VOLUMES)
+	@sudo rm -rf $(VOLUMES)
 
 re: fclean $(NAME)

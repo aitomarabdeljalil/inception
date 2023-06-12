@@ -10,7 +10,7 @@ if [ ! -f "/var/www/html/index.php" ]; then
     sed -i "s/password_here/$DB_PASS/1" wp-config.php
     sed -i "s/username_here/$DB_USER/1" wp-config.php
     sed -i "s/localhost/mariadb/1" wp-config.php
-    wp core install --path=/var/www/html/ --url='localhost' --title=$WP_TITLE --admin_user=$WP_ADMIN --admin_password=$WP_ADM_PASS  --admin_email=$WP_EMAIL --allow-root
+    wp core install --path=/var/www/html/ --url=$DOMAIN_NAME --title=$WP_TITLE --admin_user=$WP_ADMIN --admin_password=$WP_ADM_PASS  --admin_email=$WP_EMAIL --allow-root
     wp user create $WP_ADMIN $WP_EMAIL --role=author --user_pass=$WP_PASS --path='/var/www/html/' --allow-root
 	wp plugin install redis-cache --activate --allow-root
 	wp config set WP_REDIS_PORT 6379 --path="/var/www/html" --allow-root;

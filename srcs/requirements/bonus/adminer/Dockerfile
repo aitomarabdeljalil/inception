@@ -20,4 +20,3 @@ RUN	wget https://github.com/vrana/adminer/releases/download/v4.8.1/adminer-4.8.1
 
 CMD ["/usr/sbin/apachectl", "-DFOREGROUND"]
 
-# place of 127.0.0.1 do aait-oma.42.fr
